@@ -6,16 +6,19 @@ def main():
     screen = pg.display.set_mode((1600, 780))
     pg.display.set_caption('Gravity Sim')
     clock = pg.time.Clock()
-    circle = shapes.Circle(50, (800, 100), (255,255,0))
-    circle.draw(screen)
-    rectangle = pg.draw.rect(screen, (0, 255, 0), (0, 600, 1600, 180))
+    circle = shapes.Circle((255,255,0), 800, 100, 50)
+    
     running = True
 
     while running:
+        time = clock.tick(60)/1000
         for event in pg.event.get():
             if event.type == pg.QUIT:
                 running=False
-        circle.fall()
+        circle.fall(time)
+        screen.fill((0, 0, 0))
+        circle.render(screen)
+        rectangle = pg.draw.rect(screen, (0, 255, 0), (0, 600, 1600, 180))
         pg.display.flip()
         clock.tick(60)
 

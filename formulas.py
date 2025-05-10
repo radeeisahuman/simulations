@@ -1,7 +1,7 @@
-gravity = 9.81
+gravity = 98.1
 
-def calculate_velocity(acceleration: float, time: float):
-    return acceleration * time
+def calculate_velocity(time: float):
+    return gravity * time
 
 def distance_travelled(velocity: float, time: float):
     return velocity * time
